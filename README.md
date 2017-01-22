@@ -13,5 +13,5 @@
 效果2:
 ![image](http://ww4.sinaimg.cn/large/639d3769jw1fbzis1g5q9g20b408cwlx.gif)
 
-你感受一下，看看上面的效果，是不是感觉第一个好很多了。嗯，其实还是可以的对吧，那好，下面我们来深入这个loading的代码内部，坐稳了，老司机带你加速！带你上高速！(你先别误会，我不会像某车主对待摩拜那样，塞进后备箱就带你回湖南了，我不是那样的老司机![image](http://ww2.sinaimg.cn/large/639d3769jw1fbzj0kydsmj201e01eq2p.jpg)
+  你感受一下，看看上面的效果，是不是感觉第一个好很多了。嗯，其实还是可以的对吧，那好，下面我们来深入这个loading的代码内部，坐稳了，老司机带你加速！带你上高速！(你先别误会，我不会像某车主对待摩拜那样，塞进后备箱就带你回湖南了，我不是那样的老司机![image](http://ww2.sinaimg.cn/large/639d3769jw1fbzj0kydsmj201e01eq2p.jpg)
 loading其实很简单，是svg做的，其实svg用到的属性和效果也比较枯燥
