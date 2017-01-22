@@ -31,6 +31,3 @@ Tips:其实这个属性我在写keyframes的时候是故意分开的，有些人
 应该大家都搞过flash的关键帧动画吧，那如果把两个有关联的动画想象成是2条同时开始的关键帧动画，只不过前面的时间我让动画1显示，到了后面动画一逐渐消失，与此同时动画二逐渐出现，最后看起来的效果会怎样![image][http://ww4.sinaimg.cn/large/639d3769jw1fbzksqlhxij201c01cmwx.jpg],你感受一下，来走起！
 时间轴的概念我就不讲述了直接上一张比较有代表性的图：
 ![image][http://ww1.sinaimg.cn/large/639d3769jw1fbzl1e6q91j20xl03et99.jpg]
-嗯，细心的童鞋又发现了问题，就算是这样，那你怎么保证他们能够很自然的衔接啊:triumph::triumph::triumph:难不成让我用js去判断AnimationEnd吗？这样不妥吧？喂喂喂童鞋，你这个有点僵硬啊，难道我们大css不能解决以上问题吗？:scream::scream:(别用很吃惊的眼神看着我，这就是可以，而且可以做的好很，很细致！很完美！强迫症患者的福音！)，帅哥！到底怎么耍！:unamused:既然你诚心诚意的问了，那么我就大发慈悲的告诉你，来来来，咱们也不卖关子，先上一组代码玩玩：
-![image][http://codepen.io/shinehs/pen/QdvOjQ]
->>>>>>> 35cf3ae792e03fe81f41b193e7a1fd909fd5e3aa
