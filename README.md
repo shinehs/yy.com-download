@@ -254,6 +254,6 @@ if(reqImg.complete){
 }
 ````
 **TIPS4：**如你所见，很简单其实就是在几个主流的dpr下把loading放大对应的系数而已，当然也会有失真的问题，因为当dpr=3的时候其实图片被放大了1.5倍辣么多，对已一个8KB的图而言~这有点僵硬~不过暂时没关系辣~我们现在要解决的问题是从无到有，然后再从有到优。
-以上~peace~
+以上~peace~DFTBA~
 
 ![image](http://ww1.sinaimg.cn/large/639d3769jw1fc0kmhf9g9j20dw07raah.jpg)
