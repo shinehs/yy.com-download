@@ -45,13 +45,22 @@ imgObj.addEventListener("webkitAnimationEnd", function() {
 ![image](http://ww1.sinaimg.cn/large/639d3769jw1fc0au5tejkj203m030mwx.jpg)
 
 :unamused:既然你诚心诚意的问了，那么我就大发慈悲的告诉你，来来来，咱们也不卖关子，意识流先走一波：
-应该大家都搞过flash的关键帧动画吧，那如果把两个有关联的动画想象成是2条同时开始的关键帧动画，只不过前面的时间我让动画1显示，到了后面动画1逐渐消失，与此同时动画2逐渐出现,覆盖，最后看起来的效果会怎样![image](http://ww4.sinaimg.cn/large/639d3769jw1fbzksqlhxij201c01cmwx.jpg),你感受一下，来走起！
+应该大家都搞过flash的关键帧动画吧，那如果把两个有关联的动画想象成是2条同时开始的关键帧动画，只不过前面的时间我让动画1显示，到了后面动画1逐渐消失，与此同时动画2逐渐出现,覆盖，最后看起来的效果会怎样
+![image](http://ww4.sinaimg.cn/large/639d3769jw1fbzksqlhxij201c01cmwx.jpg),你感受一下，来走起！
 时间轴的概念我就不讲述了直接上一张比较有代表性的图：
+
 ![image](http://ww1.sinaimg.cn/large/639d3769jw1fbzl1e6q91j20xl03et99.jpg)
 
 再来一个动画像是这样：
+
 ![image](http://ww4.sinaimg.cn/large/639d3769jw1fc0bkje92lg20b408cnb5.gif)
-动画1逐渐消失，动画二逐渐出现，互相补充了对方消失时间内视觉的空白(![image](http://ww4.sinaimg.cn/large/639d3769jw1fbzksqlhxij201c01cmwx.jpg),这个用fp做出来的动画效果并不是很完美，因为动画2一开始alpha=0%也是显示出来的，不造为什么，who care!)，是不是！赶脚到了一些什么！（有童鞋说，神马鬼！完全可以用一个动画实现你这个图的效果啊，唉哟不错哦~但是童鞋，这里是讲css实现效果上的一个小思路辣，我们要的是思路和姿势！并不是一个动画走天下哈）嗯，讲到这里，聪明的童鞋可能已经想关掉网页了，唉唉唉，别急啊，学知识都是由浅入深的，你以为到这里，我就讲完了？too naive!(图样图森破)，还是要先照顾一下不怎么懂的童鞋，来我们看代码例子!（是不是感觉又回到了大学课堂上，老师先对着睡意阑珊的你们讲真理！然后才到你最关注的那一句！下来我们来一个栗子！![image](http://ww3.sinaimg.cn/large/639d3769jw1fc0bqwwv01j201m017we9.jpg))
+动画1逐渐消失，动画二逐渐出现，互相补充了对方消失时间内视觉的空白(
+
+![image](http://ww4.sinaimg.cn/large/639d3769jw1fbzksqlhxij201c01cmwx.jpg)
+
+,这个用fp做出来的动画效果并不是很完美，因为动画2一开始alpha=0%也是显示出来的，不造为什么，who care!)，是不是！赶脚到了一些什么！（有童鞋说，神马鬼！完全可以用一个动画实现你这个图的效果啊，唉哟不错哦~但是童鞋，这里是讲css实现效果上的一个小思路辣，我们要的是思路和姿势！并不是一个动画走天下哈）嗯，讲到这里，聪明的童鞋可能已经想关掉网页了，唉唉唉，别急啊，学知识都是由浅入深的，你以为到这里，我就讲完了？too naive!(图样图森破)，还是要先照顾一下不怎么懂的童鞋，来我们看代码例子!（是不是感觉又回到了大学课堂上，老师先对着睡意阑珊的你们讲一大堆你们认为不太重要的理论！然后才到你最关注的那一句！下面我们来一个栗子！
+![image](http://ww3.sinaimg.cn/large/639d3769jw1fc0bqwwv01j201m017we9.jpg))
+
 ```javascript
 //图片
 .load__illustration {
@@ -78,7 +87,7 @@ imgObj.addEventListener("webkitAnimationEnd", function() {
     opacity:0;
   }
   83.625% {
-    opacity:0;
+    opacity:1;
   }
   100% {
     opacity:1;
@@ -105,14 +114,6 @@ imgObj.addEventListener("webkitAnimationEnd", function() {
     -webkit-stroke-dashoffset: 640;
     stroke-dashoffset: 640;
     opacity:0;
-  }
-  85%{
-    -webkit-stroke-dasharray:0,794;
-    stroke-dasharray:0,794;
-    -webkit-stroke-dasharray: 794; 
-    stroke-dasharray: 794; 
-    -webkit-stroke-dashoffset: 794;
-    stroke-dashoffset: 794;
   }
   100%{
     -webkit-stroke-dasharray:0,794;
