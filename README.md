@@ -205,7 +205,7 @@ imgObj.addEventListener("webkitAnimationEnd", function() {
 
 ![image](http://ww4.sinaimg.cn/large/639d3769jw1fc0cbbzz6nj204z050a9z.jpg)
 
-好再上一个codepen的源码，反正没有什么好隐藏的，来来来，看看源码愉快玩耍！(注：后面在上线前做了一些调整，可能代码并非写的那么好，但是效果达到了，也请各位大神轻喷~)[CODEPEN上的loding源码](http://codepen.io/shinehs/pen/QdvOjQ)
+好再上一个codepen的源码，反正没有什么好隐藏的，来来来，看看源码愉快玩耍！(注：后面在上线前做了一些调整，可能代码并非写的那么好，但是效果达到了，也请各位大神轻喷~)
 
 2.进度条
 =======
