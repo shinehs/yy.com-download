@@ -22,12 +22,106 @@ loading其实很简单，是svg做的，其实svg用到的属性和效果也比�
 
     stroke-dasharray:0,794;
 ```
-Tips:其实这个属性我在写keyframes的时候是故意分开的，有些人觉得奇怪为什么stroke-dasharray要写2个，其实这个我只是为了兼容低版本的安卓机器，因为只写stroke-dasharray:0,794，很多安卓机器是无法识别的，iOS一直表现不错，但是对于2条属性iOS又无法识别，那么好，我只能写成这种类似hack的形式了。:dizzy_face:
+**Tips**:其实这个属性我在写keyframes的时候是故意分开的，有些人觉得奇怪为什么stroke-dasharray要写2个，其实这个我只是为了兼容低版本的安卓机器，因为只写stroke-dasharray:0,794，很多安卓机器是无法识别的，iOS一直表现不错，但是对于2条属性iOS又无法识别，那么好，我只能写成这种类似hack的形式了。:dizzy_face:
 不打算对svg的这两个属性做太多介绍，但是还是附上一些学习资源吧，毕竟都是自己一路过来菜的坑。
 [svg相关教程](https://segmentfault.com/a/1190000007309718)
-如果你不会画svg的图，也没关系拉，作为一个大前段，你肯定是会用PS的把！那这份教程拿好！[图片变svg相关教程](http://www.cnblogs.com/coco1s/p/6230165.html)
-嗯，有童鞋说，拿了以上资源还是无法写出类似的效果啊，最后的颜色什么的是怎么填充上去的？喂喂喂，童鞋，你又直线思维了:flushed:，现在我们该直角转弯了！事情总是这样的，你不是学过透明度渐变等等知识吗，那你想一想，如果在svg动画快要结束的时候，把一张事先准备好的图片，偷偷的通过改变透明度的方式呈现出来，:sunglasses:同时，svg透明度逐渐变小，是不是！图片向前，svg向后！完美的衔接！就像svg被填充上了颜色！有木有！干的漂酿！没毛病老铁！:sunglasses:
-嗯，细心的童鞋又发现了问题，就算是这样，那你怎么保证他们能够很自然的衔接啊:triumph::triumph::triumph:难不成让我用js去判断AnimationEnd吗？这样不妥吧？喂喂喂童鞋，你这个有点僵硬啊，难道我们大css不能解决以上问题吗？:scream::scream:(别用很吃惊的眼神看着我，这就是可以，而且可以做的好很，很细致！很完美！强迫症患者的福音！)，帅哥！到底怎么耍！:unamused:既然你诚心诚意的问了，那么我就大发慈悲的告诉你，来来来，咱们也不卖关子，意识流先走一波：
-应该大家都搞过flash的关键帧动画吧，那如果把两个有关联的动画想象成是2条同时开始的关键帧动画，只不过前面的时间我让动画1显示，到了后面动画一逐渐消失，与此同时动画二逐渐出现，最后看起来的效果会怎样![image](http://ww4.sinaimg.cn/large/639d3769jw1fbzksqlhxij201c01cmwx.jpg),你感受一下，来走起！
+**如果你不会画svg的图**，也没关系拉，作为一个大前端，你肯定是会用PS的把！那这份教程拿好！[图片变svg相关教程](http://www.cnblogs.com/coco1s/p/6230165.html)
+嗯，有童鞋说，拿了以上资源还是无法写出类似的效果啊，最后的颜色什么的是怎么填充上去的？喂喂喂，童鞋，你又直线思维了,现在我们该直角转弯了！来来来坐稳~准备第二波飙车，
+![image](http://ww4.sinaimg.cn/large/639d3769jw1fc0asacyabj20ds07rq5a.jpg)
+
+**事情总是这样的**，你不是学过透明度渐变等等知识吗，那你想一想，如果在svg动画快要结束的时候，把一张事先准备好的图片，偷偷的通过改变透明度的方式呈现出来，:sunglasses:同时，svg透明度逐渐变小，是不是！图片渐渐出现，svg慢慢消失！完美出现衔接效果！整段都显得棒棒哒！就像svg慢慢画完然后被填充上了颜色，有辣么一堆堆的小成就感！有木有！干的漂酿！没毛病老铁！礼物订阅走一波！:sunglasses:
+![image](http://ww1.sinaimg.cn/large/639d3769jw1fc0au5tejkj203m030mwx.jpg)
+
+嗯，细心的童鞋又发现了问题，就算是这样，那你怎么保证他们能够很自然的衔接啊:triumph::triumph::triumph:难不成让我用js去判断AnimationEnd吗？像是这样：
+```javascript
+svgObj.addEventListener("webkitAnimationEnd", function() {
+    imgObj.addClass('running');
+});
+imgObj.addEventListener("webkitAnimationEnd", function() {
+    svgObj.addClass('running');
+});
+```
+这样不妥吧？喂喂喂童鞋，你这个姿势,很僵硬啊，难道我们大css不能解决以上问题吗？:scream::scream:(别用很吃惊的眼神看着我，这就是可以，而且可以做的好很，很细致！细节很完美！强迫症患者的福音！简直就是css患者的救星！)，帅哥！到底怎么耍！![image](http://ww1.sinaimg.cn/large/639d3769jw1fc0b0hhrwhj201a01b0n7.jpg)(你看，长相一般的人，会一个css技巧不算什么，但是我就不同了，如果我会某个css技巧，他们就会说，卧槽长得这么帅还会这么多技巧，牛B!)
+![image](http://ww1.sinaimg.cn/large/639d3769jw1fc0au5tejkj203m030mwx.jpg)
+
+:unamused:既然你诚心诚意的问了，那么我就大发慈悲的告诉你，来来来，咱们也不卖关子，意识流先走一波：
+应该大家都搞过flash的关键帧动画吧，那如果把两个有关联的动画想象成是2条同时开始的关键帧动画，只不过前面的时间我让动画1显示，到了后面动画1逐渐消失，与此同时动画2逐渐出现,覆盖，最后看起来的效果会怎样![image](http://ww4.sinaimg.cn/large/639d3769jw1fbzksqlhxij201c01cmwx.jpg),你感受一下，来走起！
 时间轴的概念我就不讲述了直接上一张比较有代表性的图：
 ![image](http://ww1.sinaimg.cn/large/639d3769jw1fbzl1e6q91j20xl03et99.jpg)
+
+再来一个动画像是这样：
+![image](http://ww4.sinaimg.cn/large/639d3769jw1fc0bkje92lg20b408cnb5.gif)
+动画1逐渐消失，动画二逐渐出现，互相补充了对方消失时间内视觉的空白(![image](http://ww4.sinaimg.cn/large/639d3769jw1fbzksqlhxij201c01cmwx.jpg),这个用fp做出来的动画效果并不是很完美，因为动画2一开始alpha=0%也是显示出来的，不造为什么，who care!)，是不是！赶脚到了一些什么！（有童鞋说，神马鬼！完全可以用一个动画实现你这个图的效果啊，唉哟不错哦~但是童鞋，这里是讲css实现效果上的一个小思路辣，我们要的是思路和姿势！并不是一个动画走天下哈）嗯，讲到这里，聪明的童鞋可能已经想关掉网页了，唉唉唉，别急啊，学知识都是由浅入深的，你以为到这里，我就讲完了？too naive!(图样图森破)，还是要先照顾一下不怎么懂的童鞋，来我们看代码例子!（是不是感觉又回到了大学课堂上，老师先对着睡意阑珊的你们讲真理！然后才到你最关注的那一句！下来我们来一个栗子！![image](http://ww3.sinaimg.cn/large/639d3769jw1fc0bqwwv01j201m017we9.jpg))
+```javascript
+//图片
+.load__illustration {
+  position:absolute;
+  left:-1px;
+  top:-1px;
+  opacity:0;
+  animation:opimg 1.25s linear 1 forwards;
+}
+//svg动画
+.loadContent__text {
+  animation:fillText 1.25s linear 1 forwards;
+  
+  stroke-dasharray: 794; 
+  stroke-dashoffset: 794;
+  opacity:1;
+}
+
+@keyframes opimg {
+  0% {
+    opacity:0;
+  }
+  80% {
+    opacity:0;
+  }
+  83.625% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+@-webkit-keyframes fillText {
+  0%{
+    -webkit-stroke-dasharray:0,794;
+    stroke-dasharray:0,794;
+    -webkit-stroke-dasharray: 794; 
+    stroke-dasharray: 794; 
+    -webkit-stroke-dashoffset: 794;
+    stroke-dashoffset: 794;
+    opacity:1;
+  }
+  80%{
+    opacity:1;
+  }
+  83.375% {
+    -webkit-stroke-dasharray:160,794;
+    stroke-dasharray:180,794;
+    -webkit-stroke-dasharray: 794; 
+    stroke-dasharray: 794; 
+    -webkit-stroke-dashoffset: 640;
+    stroke-dashoffset: 640;
+    opacity:0;
+  }
+  85%{
+    -webkit-stroke-dasharray:0,794;
+    stroke-dasharray:0,794;
+    -webkit-stroke-dasharray: 794; 
+    stroke-dasharray: 794; 
+    -webkit-stroke-dashoffset: 794;
+    stroke-dashoffset: 794;
+  }
+  100%{
+    -webkit-stroke-dasharray:0,794;
+    stroke-dasharray:0,794;
+    -webkit-stroke-dasharray: 794; 
+    stroke-dasharray: 794; 
+    -webkit-stroke-dashoffset: 794;
+    stroke-dashoffset: 794;
+    opacity:0;
+  }
+}
+```
