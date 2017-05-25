@@ -1,4 +1,4 @@
-yy.com下载页之loading~duang duang duang~废话不多，高能走起！
+yy.com下载页之loading废话不多，高能走起！
 ======
 1.loading。
 ------
